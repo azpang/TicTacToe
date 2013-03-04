@@ -13,7 +13,6 @@
 
 @property (strong, nonatomic) NSArray* players;
 
-- (id) initWithPlayer:(NSArray *) players;
-- (void) sendMessageToPlayer:(int) playerIndex messageContent:(NSString *) message;
+- (void) sendMessageToActivePlayer:(NSString *) messageType;
 
 @end

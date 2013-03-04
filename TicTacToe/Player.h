@@ -10,14 +10,10 @@
 
 @interface Player : NSObject
 
+@property (assign, nonatomic) int playerIndex;
 @property (strong, nonatomic) NSString *name;
 @property (strong, nonatomic) UIImage *character;
 @property (strong, nonatomic) UIImage *symbol;
-@property (strong, nonatomic) NSMutableArray *moves;
 
-- (BOOL) isPlayerDefined;
-- (void) playerDidMove:(int) boardPosition;
-- (void) clearMoves;
-- (BOOL) didPlayerWin;
 
 @end

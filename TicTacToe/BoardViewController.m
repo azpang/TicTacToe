@@ -8,34 +8,40 @@
 
 #import "BoardViewController.h"
 #import "BoardStatusView.h"
-#import "Player.h"
+#import "Gameboard.h"
 #import "MessageTypes.h"
+#import "GameboardDelegate.h"
+#import "PlayerController.h"
+
 
 @interface BoardViewController ()
 
-@property (assign, nonatomic) int activePlayer;
-@property (assign, nonatomic) int leftTurns;
+@property (strong, nonatomic) BoardStatusView *boardStatusView;
+@property (strong, nonatomic) Gameboard *gameBoard;
+@property (strong, nonatomic) PlayerController *playerController;
 
 @end
 
 @implementation BoardViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.statusBar = [[BoardStatusView alloc] initWithPlayer:self.players];
-    [self.view addSubview:self.statusBar];
-    [self initGame];
+    
+    [self.view subviews];
+    
+    _playerController = [PlayerController getPlayerController];
+    
+    _gameBoard = [[Gameboard alloc] init];
+    _gameBoard.delegate = self;
+    
+    _boardStatusView = [[BoardStatusView alloc] init];;
+    [self.view addSubview:_boardStatusView];
+
+    [self updateBoardView:PLAYER_TURN];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,70 +52,25 @@
 
 - (IBAction)boardButtonPressed:(UIButton *) button{
     
-    NSLog(@"Board Button Pressed");
-    
-    [self.players[self.activePlayer] playerDidMove:button.tag];
-    
-    //Update board and deactivate the button
-    [button setImage:[self.players[self.activePlayer] symbol] forState:UIControlStateNormal];
+    [button setImage:[_playerController getActivePlayerSymbol] forState:UIControlStateDisabled];
     button.enabled = NO;
+    [_gameBoard playerDidMove:button.tag];
     
-    if([self didPlayerWin:self.activePlayer]){
-    //Player Did Win
-        [self.statusBar sendMessageToPlayer:self.activePlayer messageContent:PLAYER_WIN];
-        
-        NSArray *boardSubViews = self.view.subviews;
-        
-        for (int i = 0; i<boardSubViews.count; i++) {
-            if([boardSubViews[i] isKindOfClass:[UIButton class]]){
-                UIButton *button = (UIButton *)boardSubViews[i];
-                button.enabled = NO;
-            }
-        }
-        
-    }else{
-    //Player Did Not Win
+}
+
+
+#pragma GameboardDelegate
+
+- (void) updateBoardView: (NSString* ) message{
     
-        self.leftTurns = --self.leftTurns;
-        
-        if(self.leftTurns == 0){
-            //End of the game
-            [self.statusBar sendMessageToPlayer:self.activePlayer messageContent:GAME_DRAW];
-            
-        }else{
-            //Continue Playing
-            [self changeActivePlayer];
-            [self.statusBar sendMessageToPlayer:self.activePlayer messageContent:PLAYER_TURN];
-            
-        }
+    if([message isEqualToString:PLAYER_WIN]){
+        //[self disableActiveButtonsLeft];
     }
     
+    [_boardStatusView sendMessageToActivePlayer:message];
+    
 }
 
-- (void)initGame{
 
-    
-    self.leftTurns = 9;
-    
-    //Clear player moves from previous game
-    [self.players[0] clearMoves];
-    [self.players[1] clearMoves];
-    
-    self.activePlayer = 0;
-    [self.statusBar sendMessageToPlayer:self.activePlayer messageContent:PLAYER_TURN];
-}
-
-- (void) changeActivePlayer{
-    if(self.activePlayer == 0){
-        self.activePlayer = 1;
-    }else{
-        self.activePlayer = 0;
-    }
-}
-
-- (BOOL)didPlayerWin:(int) playerIndex{
-    
-    return [self.players[playerIndex] didPlayerWin];
-}
 
 @end

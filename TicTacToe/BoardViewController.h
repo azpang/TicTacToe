@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameboardDelegate.h"
 
 @class BoardStatusView;
 
-@interface BoardViewController : UIViewController
+@interface BoardViewController : UIViewController <GameboardDelegate>
 
-@property (strong, nonatomic) NSArray* players;
 @property (strong, nonatomic) BoardStatusView *statusBar;
 
 @end
