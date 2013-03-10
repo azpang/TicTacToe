@@ -15,7 +15,7 @@
 //Value hardcoded to 2 in constructor
 @property (assign, nonatomic) int numberOfPlayers;
 
-+(PlayerController*) getPlayerController;
++(PlayerController*) getPlayerControllerInstance;
 -(void) addPlayer:(NSUInteger) playerIndex;
 - (void) updateActivePlayerCharacterIcon:(UIImage *) characterIcon;
 - (void) updateActivePlayerSymbolIcon:(UIImage *) symbolIcon;

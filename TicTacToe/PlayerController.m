@@ -20,7 +20,7 @@
 
 @implementation PlayerController
 
-+ (PlayerController *)getPlayerController{
++ (PlayerController *)getPlayerControllerInstance{
     static dispatch_once_t pred;
     static PlayerController *shared = nil;
     

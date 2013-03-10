@@ -14,6 +14,7 @@
 
 @property (strong, nonatomic) NSObject<GameboardDelegate> *delegate;
 
+-(id) initRedux;
 -(void) playerDidMove:(int) boardIndex;
 
 @end

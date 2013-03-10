@@ -59,7 +59,7 @@
         _boardSpaces = 9;
         
         //Get a player controller instance
-        _playerController = [PlayerController getPlayerController];
+        _playerController = [PlayerController getPlayerControllerInstance];
         [_playerController setNextActivePlayer];
         
         
@@ -76,6 +76,24 @@
     }
     
     return self;
+}
+
+-(id) initRedux{
+    
+    PlayerController *playerController = [PlayerController getPlayerControllerInstance];
+    
+    //Init Players
+    [playerController addPlayer:1];
+    [playerController addPlayer:2];
+    
+    self = [self init];
+    
+    if(self){
+        
+    }
+    
+    return self;
+    
 }
 
 -(void) playerDidMove:(int) boardIndex{

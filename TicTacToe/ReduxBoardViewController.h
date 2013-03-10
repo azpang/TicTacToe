@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameboardDelegate.h"
 
-@interface ReduxBoardViewController : UIViewController
+@class ClassicView;
+
+@interface ReduxBoardViewController : UIViewController<GameboardDelegate>
+
+@property (strong, nonatomic) ClassicView *classicView;
+
+- (void) nextPlayerTurn:(int) boardCellSelected;
 
 @end

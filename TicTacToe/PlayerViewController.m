@@ -27,7 +27,7 @@
     self = [super initWithCoder:aDecoder];
     if (self) {
         // Custom initialization
-        _playerController = [PlayerController getPlayerController];
+        _playerController = [PlayerController getPlayerControllerInstance];
         _isCharacterSelected = NO;
         _isSymbolSelected = NO;
         _nextScreen = nil;

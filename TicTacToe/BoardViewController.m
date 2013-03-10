@@ -29,10 +29,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+
     
-    [self.view subviews];
-    
-    _playerController = [PlayerController getPlayerController];
+    _playerController = [PlayerController getPlayerControllerInstance];
     
     _gameBoard = [[Gameboard alloc] init];
     _gameBoard.delegate = self;

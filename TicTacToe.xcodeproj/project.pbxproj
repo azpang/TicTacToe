@@ -11,6 +11,10 @@
 		4C58F85916D31A7D005C707F /* BoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C58F85816D31A7D005C707F /* BoardViewController.m */; };
 		4CB420C216E029C00063D90A /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 4CB420C116E029C00063D90A /* Images */; };
 		4CCC17B516E43B4800C53139 /* ReduxBoardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCC17B416E43B4800C53139 /* ReduxBoardViewController.m */; };
+		4CCC17B816E4452700C53139 /* ReduxBoardStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCC17B716E4452700C53139 /* ReduxBoardStatusView.m */; };
+		4CDA320916E6C411009CE291 /* ClassicView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA320816E6C411009CE291 /* ClassicView.m */; };
+		4CDA320C16E6CF8A009CE291 /* ClassicViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA320B16E6CF8A009CE291 /* ClassicViewCell.m */; };
+		4CDA320F16E6D9C1009CE291 /* StatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDA320E16E6D9C1009CE291 /* StatusView.m */; };
 		4CDCB86616D091F100F73019 /* BoardStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CDCB86516D091F100F73019 /* BoardStatusView.m */; };
 		4CE26BD616DA4EB100DFBB6D /* Gameboard.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE26BD516DA4EB100DFBB6D /* Gameboard.m */; };
 		4CE26C0B16DAE5BF00DFBB6D /* WelcomeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CE26C0A16DAE5BF00DFBB6D /* WelcomeTableViewController.m */; };
@@ -38,9 +42,18 @@
 		4C58F85716D31A7D005C707F /* BoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardViewController.h; sourceTree = "<group>"; };
 		4C58F85816D31A7D005C707F /* BoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardViewController.m; sourceTree = "<group>"; };
 		4CB420C116E029C00063D90A /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		4CC8602516EC48C900BF2DD3 /* ClassicViewCellDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassicViewCellDelegate.h; sourceTree = "<group>"; };
 		4CCC17B216E40DBD00C53139 /* GameboardDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameboardDelegate.h; sourceTree = "<group>"; };
 		4CCC17B316E43B4800C53139 /* ReduxBoardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReduxBoardViewController.h; sourceTree = "<group>"; };
 		4CCC17B416E43B4800C53139 /* ReduxBoardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReduxBoardViewController.m; sourceTree = "<group>"; };
+		4CCC17B616E4452700C53139 /* ReduxBoardStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReduxBoardStatusView.h; sourceTree = "<group>"; };
+		4CCC17B716E4452700C53139 /* ReduxBoardStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReduxBoardStatusView.m; sourceTree = "<group>"; };
+		4CDA320716E6C411009CE291 /* ClassicView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassicView.h; sourceTree = "<group>"; };
+		4CDA320816E6C411009CE291 /* ClassicView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassicView.m; sourceTree = "<group>"; };
+		4CDA320A16E6CF89009CE291 /* ClassicViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassicViewCell.h; sourceTree = "<group>"; };
+		4CDA320B16E6CF8A009CE291 /* ClassicViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassicViewCell.m; sourceTree = "<group>"; };
+		4CDA320D16E6D9C0009CE291 /* StatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusView.h; sourceTree = "<group>"; };
+		4CDA320E16E6D9C1009CE291 /* StatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusView.m; sourceTree = "<group>"; };
 		4CDCB86416D091F100F73019 /* BoardStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardStatusView.h; sourceTree = "<group>"; };
 		4CDCB86516D091F100F73019 /* BoardStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardStatusView.m; sourceTree = "<group>"; };
 		4CE26BD416DA4EB100DFBB6D /* Gameboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Gameboard.h; sourceTree = "<group>"; };
@@ -91,6 +104,7 @@
 		4CCC17B116E40D8600C53139 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				4CC8602516EC48C900BF2DD3 /* ClassicViewCellDelegate.h */,
 				4CCC17B216E40DBD00C53139 /* GameboardDelegate.h */,
 				4CF469BC16E1A42E00A6D525 /* IconCollectionViewDelegate.h */,
 			);
@@ -135,8 +149,16 @@
 			children = (
 				4CDCB86416D091F100F73019 /* BoardStatusView.h */,
 				4CDCB86516D091F100F73019 /* BoardStatusView.m */,
+				4CDA320D16E6D9C0009CE291 /* StatusView.h */,
+				4CDA320E16E6D9C1009CE291 /* StatusView.m */,
 				4CE26C4416DB057600DFBB6D /* IconCollectionViewCell.h */,
 				4CE26C4516DB057600DFBB6D /* IconCollectionViewCell.m */,
+				4CCC17B616E4452700C53139 /* ReduxBoardStatusView.h */,
+				4CCC17B716E4452700C53139 /* ReduxBoardStatusView.m */,
+				4CDA320716E6C411009CE291 /* ClassicView.h */,
+				4CDA320816E6C411009CE291 /* ClassicView.m */,
+				4CDA320A16E6CF89009CE291 /* ClassicViewCell.h */,
+				4CDA320B16E6CF8A009CE291 /* ClassicViewCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -278,6 +300,10 @@
 				4CE26C4616DB057600DFBB6D /* IconCollectionViewCell.m in Sources */,
 				4CEFA8F916DDA231005045C1 /* PlayerController.m in Sources */,
 				4CCC17B516E43B4800C53139 /* ReduxBoardViewController.m in Sources */,
+				4CCC17B816E4452700C53139 /* ReduxBoardStatusView.m in Sources */,
+				4CDA320916E6C411009CE291 /* ClassicView.m in Sources */,
+				4CDA320C16E6CF8A009CE291 /* ClassicViewCell.m in Sources */,
+				4CDA320F16E6D9C1009CE291 /* StatusView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
