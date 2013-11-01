@@ -2,8 +2,8 @@
 //  StatusView.m
 //  TicTacToe
 //
-//  Created by PartyMan on 3/5/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 3/5/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import "StatusView.h"
@@ -31,7 +31,7 @@
     self.playerCharacterImage.image = player.character;
     self.playerSymbolImage.image = player.symbol;
     
-    if([messageType isEqualToString:PLAYER_TURN]){
+    if([messageType isEqualToString:PLAYER_TURN_MSG]){
         
         self.playerNameLabel.text = [NSString stringWithFormat:@"%@: Your turn", player.name];
         

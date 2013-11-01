@@ -2,8 +2,8 @@
 //  ClassicView.m
 //  TicTacToe
 //
-//  Created by PartyMan on 3/5/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 3/5/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import "ClassicView.h"
@@ -32,8 +32,6 @@
 @property (strong, nonatomic) ClassicViewCell *boardCell7;
 @property (strong, nonatomic) ClassicViewCell *boardCell8;
 
-@property (strong, nonatomic) PlayerController *playerController;
-
 @property (assign, nonatomic) int boardCellSelected;
 
 @end
@@ -49,7 +47,6 @@
         [self setUserInteractionEnabled:YES];
         _boardCellBorderThickness = 2.0f;
         _boardCellBackgroundColor = [UIColor whiteColor];
-        _playerController = [PlayerController getPlayerControllerInstance];
         
         //Redux status bar initialization and addition to parent view
         _reduxStatusBar = [[ReduxBoardStatusView alloc] init];
@@ -78,6 +75,7 @@
         [self addSubview:_nextButton];
         
         [_nextButton addTarget:self action:@selector(nextPlayerTurn:) forControlEvents:UIControlEventTouchUpInside];
+        _nextButton.hidden = YES;
         
         
 
@@ -176,16 +174,31 @@
     
 }
 
+- (IBAction)nextPlayerTurn:(UIButton *)sender{
+    
+    [self.delegate nextPlayerTurn:self.boardCellSelected];
+    
+    for(ClassicViewCell *cell in self.boardViewCells){
+        
+        if(cell.enable){
+            [cell setUserInteractionEnabled:YES];
+            (cell.inkColor == [UIColor blackColor]) ? (cell.inkColor = [UIColor redColor]) : (cell.inkColor = [UIColor blackColor]);
+        }
+    }
+    
+    self.nextButton.hidden = YES;
+    
+}
 
+#pragma mark - ClassicViewCellDelegate methods
 - (void) boardCellSelected:(ClassicViewCell *)boardCell{
     
-    _boardCellSelected = boardCell.cellIndex;
-    NSLog(@"Cell %d was selected by player %d", boardCell.cellIndex, [_playerController getActivePlayerIndex]);
+    self.nextButton.hidden = NO;
+    self.boardCellSelected = boardCell.cellIndex;
     boardCell.enable = NO;
     
     //Deactivate other board cells
     for(ClassicViewCell *cell in _boardViewCells){
-    
         if(cell.cellIndex != boardCell.cellIndex){
             [cell setUserInteractionEnabled:NO];
         }
@@ -194,29 +207,5 @@
     
 }
 
-- (IBAction)nextPlayerTurn:(UIButton *)sender{
-    
-    [_delegate nextPlayerTurn:_boardCellSelected];
-    
-    for(ClassicViewCell *cell in _boardViewCells){
-        
-        if(!cell.enable){
-            [cell setUserInteractionEnabled:NO];
-        }else{
-            [cell setUserInteractionEnabled:YES];
-        }
-        
-    }
-    
-}
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

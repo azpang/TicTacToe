@@ -2,8 +2,8 @@
 //  Gameboard.m
 //  TicTacToe
 //
-//  Created by PartyMan on 2/24/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 2/24/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import "Gameboard.h"
@@ -159,7 +159,7 @@
             //Continue Playing
             [_playerController setNextActivePlayer];
             NSLog(@"%@ your turn", _playerController.getActivePlayer);
-            [_delegate updateBoardView:PLAYER_TURN];
+            [_delegate updateBoardView:PLAYER_TURN_MSG];
         }
     }
     

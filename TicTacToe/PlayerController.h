@@ -2,8 +2,8 @@
 //  PlayerController.h
 //  TicTacToe
 //
-//  Created by PartyMan on 2/26/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 2/26/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

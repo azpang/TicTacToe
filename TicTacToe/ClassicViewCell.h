@@ -2,8 +2,8 @@
 //  ClassicViewCell.h
 //  TicTacToe
 //
-//  Created by PartyMan on 3/5/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 3/5/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -16,7 +16,7 @@
 @property (strong, nonatomic) UIColor *inkColor;
 @property (assign, nonatomic) int penStrokeSize;
 @property (assign, nonatomic) BOOL enable;
-@property (strong, nonatomic) NSObject<ClassicViewCellDelegate> *delegate;
+@property (strong, nonatomic) id<ClassicViewCellDelegate> delegate;
 
 
 - (id)initWithFrame:(CGRect)frame cellIndex:(int) cellIndex;

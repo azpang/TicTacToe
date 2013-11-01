@@ -36,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C07FB78182335DA00AD39F7 /* ClassicViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassicViewDelegate.h; sourceTree = "<group>"; };
 		4C11700B16D15FE600BFF167 /* MessageTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTypes.h; sourceTree = "<group>"; };
 		4C129B1A16CF35350089CFC1 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
 		4C129B1B16CF35350089CFC1 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		4CCC17B116E40D8600C53139 /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
+				4C07FB78182335DA00AD39F7 /* ClassicViewDelegate.h */,
 				4CC8602516EC48C900BF2DD3 /* ClassicViewCellDelegate.h */,
 				4CCC17B216E40DBD00C53139 /* GameboardDelegate.h */,
 				4CF469BC16E1A42E00A6D525 /* IconCollectionViewDelegate.h */,

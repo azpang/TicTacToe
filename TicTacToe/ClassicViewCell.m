@@ -2,8 +2,8 @@
 //  ClassicViewCell.m
 //  TicTacToe
 //
-//  Created by PartyMan on 3/5/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 3/5/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import "ClassicViewCell.h"
@@ -41,11 +41,13 @@
         
         //Defualt property values
         _boarderThickness = 2.0;
-        _inkColor = [UIColor blackColor];
+        _inkColor = [UIColor redColor];
         _previousPoint = CGPointZero;
         _penStrokeSize = 5;
         
-        [self initContext:self.frame.size];
+        if(![self initContext:self.frame.size]){
+            [[NSException exceptionWithName:NSGenericException reason:@"Cache Memory not created" userInfo:nil] raise];
+        }
 
     }
     return self;
@@ -83,7 +85,7 @@
     }
 }
 
-- (BOOL) initContext:(CGSize) size{
+- (BOOL) initContext:(CGSize)size{
     
     int bitmapByteCount;
 	int	bitmapBytesPerRow;
@@ -95,9 +97,7 @@
 	
 	// Allocate memory for image data. This is the destination in memory where any drawing to the bitmap context will be rendered.
 	_cacheBitmap = malloc( bitmapByteCount );
-	if (_cacheBitmap == NULL){
-		return NO;
-	}
+	if (_cacheBitmap == NULL) return NO;
 	
     _cacheContext = CGBitmapContextCreate (_cacheBitmap, size.width, size.height, 8, bitmapBytesPerRow,
                                            CGColorSpaceCreateDeviceRGB(), kCGImageAlphaPremultipliedFirst);
@@ -105,8 +105,8 @@
     return YES;
     
 }
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
+
+
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
@@ -156,7 +156,6 @@
     
     UITouch *touch = [touches anyObject];
     CGPoint touchPoint = [touch locationInView:self];
-    NSLog(@"Cell %d touch started at X: %f Y: %f", _cellIndex, touchPoint.x, touchPoint.y);
     _previousPoint = touchPoint;
 
 }
@@ -168,9 +167,7 @@
     CGPoint touchPoint = [touch locationInView:self];
     
     if (touchPoint.x < self.bounds.size.width && touchPoint.x > 0 && touchPoint.y < self.bounds.size.height && touchPoint.y > 0) {
-        
-        NSLog(@"Cell %d is being touched at X: %f Y: %f", _cellIndex, touchPoint.x, touchPoint.y);
-        
+
         _currentPoint = touchPoint;
         
         [self drawToCache];
@@ -189,7 +186,6 @@
     
     if (touchPoint.x < self.bounds.size.width && touchPoint.x > 0 && touchPoint.y < self.bounds.size.height && touchPoint.y > 0) {
         
-        NSLog(@"Cell %d touch ended at X: %f Y: %f", _cellIndex, touchPoint.x, touchPoint.y);
     }
 }
 

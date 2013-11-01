@@ -2,8 +2,8 @@
 //  ReduxBoardStatusView.m
 //  TicTacToe
 //
-//  Created by PartyMan on 3/3/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 3/3/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import "ReduxBoardStatusView.h"
@@ -25,21 +25,11 @@
         self.playerNameLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:self.playerNameLabel];
     }
-    
-    NSLog(@"Redux Status Bar Coordinates X: %f, Y: %f, Width: %f, Height: %f", self.bounds.origin.x, self.bounds.origin.y, self.bounds.size.width, self.bounds.size.height);
 
     return self;
             
 
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

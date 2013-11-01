@@ -2,16 +2,17 @@
 //  ReduxBoardViewController.h
 //  TicTacToe
 //
-//  Created by PartyMan on 3/3/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 3/3/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 #import "GameboardDelegate.h"
+#import "ClassicViewDelegate.h"
 
 @class ClassicView;
 
-@interface ReduxBoardViewController : UIViewController<GameboardDelegate>
+@interface ReduxBoardViewController : UIViewController<ClassicViewDelegate, GameboardDelegate>
 
 @property (strong, nonatomic) ClassicView *classicView;
 

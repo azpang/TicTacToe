@@ -2,8 +2,8 @@
 //  PlayerViewController.m
 //  TicTacToe
 //
-//  Created by PartyMan on 2/24/13.
-//  Copyright (c) 2013 PartyMan. All rights reserved.
+//  Created by eandrade21 on 2/24/13.
+//  Copyright (c) 2013 eandrade21. All rights reserved.
 //
 
 #import "PlayerViewController.h"
@@ -41,7 +41,7 @@
 	// Do any additional setup after loading the view.
     
     //Add Player when the view loads
-    [_playerController addPlayer:_playerIndex];
+    [self.playerController addPlayer:_playerIndex];
     
 
     NSArray *childViewControllers = self.childViewControllers;
@@ -50,13 +50,13 @@
     //NOTE: May not be the safest way to do this. What happens if childViewControllers have other types p
     for(UIViewController *vc in childViewControllers){
         if([vc class] == [CharacterCollectionViewController class]){
-            _characterIconsVC = vc;
-            _characterIconsVC.delegate = self;
+            self.characterIconsVC = (CharacterCollectionViewController*)vc;
+            self.characterIconsVC.delegate = self;
         }
         
         if([vc class] == [SymbolCollectionViewController class]){
-            _symbolIconsVC = vc;
-            _symbolIconsVC.delegate = self;
+            self.symbolIconsVC = (SymbolCollectionViewController*)vc;
+            self.symbolIconsVC.delegate = self;
         }
         
     }
